@@ -9,7 +9,7 @@ st.title("Sistema de Reservas da ADSResorts")
 st.write("Seja muito bem-vindo ao sistema de reservas!")
 
 # Escolha do hotel
-hotel = st.selectbox("Escolha o hotel desejado:", options=["Hotel 1", "Hotel 2"])
+hotel = st.selectbox("Escolha o hotel desejado:", options=["Hotel Executive", "Hotel Delux"])
 
 # Quantidade de pessoas
 qpessoas = st.number_input("Digite a quantidade de hóspedes (1 a 6):", min_value=1, max_value=6, value=1)
@@ -19,7 +19,7 @@ dias = st.number_input("Digite a quantidade de dias:", min_value=1, value=1)
 
 # Exibir resumo das informações
 if st.button("Calcular"):
-    if hotel == "Hotel 1":
+    if hotel == "Hotel Executive":
         preço = hotel1[qpessoas]
     else:
         preço = hotel2[qpessoas]
