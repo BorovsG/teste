@@ -16,9 +16,9 @@ def reservar():
 
     nome = st.text_input("Digite seu nome completo:")
     cpf = st.text_input("Digite seu CPF:")
-    hotel = st.selectbox("Escolha o hotel", [1, 2])
+    hotel = st.selectbox("Escolha o hotel desejado:", options=["Hotel Executive", "Hotel Delux"])
     pessoas = st.slider("Quantidade de pessoas", 1, 6)
-    dias = st.number_input("Quantidade de dias", min_value=1)
+    dias = st.number_input("Digite a quantidade de dias:", min_value=1, value=1)
 
     if st.button("Calcular"):
         preco = calcular_preco(hotel, pessoas, dias)
@@ -37,4 +37,3 @@ def reservar():
 
 if __name__ == "__main__":
     reservar()
-
