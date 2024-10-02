@@ -22,8 +22,8 @@ def main():
     dias = st.number_input("Digite a quantidade de dias:", min_value=1, value=1)
 
     # Botão para calcular o orçamento
-    if st.button("Calcular Orçamento"):
-        orcamento = calcular_orcamento(hotel, qpessoas, dias)
+if st.button("Calcular Orçamento"):
+    orcamento = calcular_orcamento(hotel, qpessoas, dias)
 
         # resultado
         st.write(f"**Resumo da Reserva**")
@@ -36,10 +36,10 @@ def main():
 
         # Botão para confirmar a reserva
 if st.button("Confirmar Reserva"):
-    if not nome or not cpf:
-        st.error("Por favor, preencha todos os campos obrigatórios (Nome e CPF).")
-    else:
-        st.success("Reserva confirmada com sucesso!")
+        if not nome or not cpf:
+            st.error("Por favor, preencha todos os campos obrigatórios (Nome e CPF).")
+        else:
+            st.success("Reserva confirmada com sucesso!")
 
 if __name__ == "__main__":
     main()
