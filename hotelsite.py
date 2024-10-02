@@ -1,8 +1,7 @@
 import streamlit as st
 
 def calcular_orcamento(hotel, qpessoas):
-  # Definimos as listas de preços dos hotéis aqui, dentro da função main,
-  
+  # Definimos as listas de preços dos hotéis aqui
   hotel1 = [0, 20, 28, 35, 42, 48, 53]
   hotel2 = [0, 25, 34, 42, 50, 57, 63]
 
@@ -16,7 +15,7 @@ def main():
   while True:
     st.title("Sistema de Reservas ADSResorts")
 
-    # Dados do usuário
+    # Coleta de dados do usuário
     nome = st.text_input("Digite seu nome completo:")
     cpf = st.text_input("Digite seu CPF:")
     hotel = st.selectbox("Escolha o hotel desejado:", options=["Hotel Executive", "Hotel Delux"])
@@ -33,7 +32,7 @@ def main():
       st.write(f"CPF: {cpf}")
       st.write(f"Hotel escolhido: {hotel}")
       st.write(f"Quantidade de hóspedes: {qpessoas}")
-      st.write(f"Quantidade de dias: {dias}")
+      write(f"Quantidade de dias: {dias}")
       st.write(f"Valor da diária: R$ {diaria:.2f}")
       st.write(f"Orçamento total: R$ {orcamento:.2f}")
 
@@ -51,5 +50,4 @@ def main():
 
 if __name__ == "__main__":
   main()
-
 
