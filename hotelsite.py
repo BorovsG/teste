@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Tabela de preços (dicionários para melhor organização)
+# Tabela de preços 
 precos_hotel1 = {1: 20, 2: 28, 3: 35, 4: 42, 5: 48, 6: 53}
 precos_hotel2 = {1: 25, 2: 34, 3: 42, 4: 50, 5: 57, 6: 63}
 
@@ -14,7 +14,7 @@ def calcular_orcamento(hotel, qpessoas, dias):
 def main():
     st.title("Sistema de Reservas ADSResorts")
 
-    # Input dos dados do cliente
+    # dados do cliente
     nome = st.text_input("Digite seu nome completo:")
     cpf = st.text_input("Digite seu CPF:")
     hotel = st.selectbox("Escolha o hotel desejado:", options=["Hotel Executive", "Hotel Delux"])
@@ -35,11 +35,15 @@ def main():
         st.write(f"Orçamento total: R$ {orcamento:.2f}")
 
         # Confirmação da reserva
-        confirmacao = st.radio("Deseja confirmar sua reserva?", ("Sim", "Não"))
-        if confirmacao == "Sim":
-            st.success("Sua reserva foi realizada com sucesso!")
-        else:
-            st.error("Sua reserva foi cancelada.")
+def main():
+    while True:
+        # ... (todo o código da sua função main)
+
+        # Pergunta se deseja realizar outra reserva
+        continuar = st.radio("Deseja realizar outra reserva?", ("Sim", "Não"))
+
+        if continuar == "Não":
+            break
 
 if __name__ == "__main__":
     main()
