@@ -35,10 +35,8 @@ def main():
         st.write(f"Orçamento: R${orcamento:.2f}")
 
         # Confirmação da reserva
-        if st.button("Confirmar Reserva"):
-            st.success("Sua reserva foi realizada com sucesso!")
-        else:
-            st.warning("Sua reserva foi cancelada.")
+        continuar = st.radio("O que deseja fazer?", ("Realizar outra reserva", "Sair do sistema"))
+        continuar = continuar == "Realizar outra reserva"
 
 if __name__ == "__main__":
     main()
