@@ -35,9 +35,17 @@ def main():
         st.write(f"Orçamento: R${orcamento:.2f}")
 
         # Confirmação da reserva
-        continuar = st.radio("O que deseja fazer?", ("Realizar outra reserva", "Sair do sistema"))
-        continuar = continuar == "Realizar outra reserva"
-
+        
 if __name__ == "__main__":
-    main()
+    continuar = True
+    while continuar:
+        main()
+
+        # Opção de continuar ou não
+        continuar = st.radio("Deseja realizar outra reserva?", ("Sim", "Não"))
+        continuar = continuar == "Sim"  # Converte a resposta para um valor booleano
+
+        # Reinicia a página se o usuário escolher "Sim"
+        if continuar:
+            st.experimental_rerun()
 
