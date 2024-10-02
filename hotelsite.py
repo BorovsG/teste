@@ -19,7 +19,7 @@ def main():
     cpf = st.text_input("Digite seu CPF:")
     hotel = st.selectbox("Escolha o hotel desejado:", options=["Hotel Executive", "Hotel Delux"])
     qpessoas = st.number_input("Digite a quantidade de hóspedes:", min_value=1, max_value=6)
-    dias = st.number_input("Digite a quantidade de dias:")
+    dias = st.number_input("Digite a quantidade de dias:", min_value=1, value=1)
 
     # Botão para calcular o orçamento e exibir os resultados
     if st.button("Calcular Orçamento"):
@@ -31,7 +31,7 @@ def main():
         st.write(f"CPF: {cpf}")
         st.write(f"Hotel escolhido: {hotel}")
         st.write(f"Quantidade de hóspedes: {qpessoas}")
-        st.write(f"Quantidade de dias: {dias}")
+        st.write(f"**Quantidade de dias:** {dias}")
         st.write(f"Orçamento total: R$ {orcamento:.2f}")
 
         # Confirmação da reserva
