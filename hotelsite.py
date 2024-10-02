@@ -36,6 +36,15 @@ def main():
 
         # Confirmação da reserva
         
+def limpar_estado():
+    global nome, cpf, hotel, qpessoas, dias, orcamento
+    nome = ""
+    cpf = ""
+    hotel = None
+    qpessoas = None
+    dias = None
+    orcamento = None
+
 if __name__ == "__main__":
     continuar = True
     while continuar:
@@ -43,9 +52,9 @@ if __name__ == "__main__":
 
         # Opção de continuar ou não
         continuar = st.radio("Deseja realizar outra reserva?", ("Sim", "Não"))
-        continuar = continuar == "Sim"  # Converte a resposta para um valor booleano
+        continuar = continuar == "Sim"
 
-        # Reinicia a página se o usuário escolher "Sim"
         if continuar:
-            st.experimental_rerun()
+            limpar_estado()
+            st.success("Preparando para uma nova reserva!")
 
