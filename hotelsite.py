@@ -34,27 +34,14 @@ def main():
         st.write(f"Dias: {dias}")
         st.write(f"Orçamento: R${orcamento:.2f}")
 
-        # Confirmação da reserva
-        
-def limpar_estado():
-    global nome, cpf, hotel, qpessoas, dias, orcamento
-    nome = ""
-    cpf = ""
-    hotel = None
-    qpessoas = None
-    dias = None
-    orcamento = None
+        # Botão para confirmar a reserva
+        if st.button("Confirmar Reserva"):
+            if nome and cpf:
+                st.success("Reserva confirmada com sucesso!")
+            else:
+                st.error("Por favor, preencha todos os campos obrigatórios (Nome e CPF).")
 
 if __name__ == "__main__":
-    continuar = True
-    while continuar:
-        main()
-
-        # Opção de continuar ou não
-        continuar = st.radio("Deseja realizar outra reserva?", ("Sim", "Não"))
-        continuar = continuar == "Sim"
-
-        if continuar:
-            limpar_estado()
-            st.success("Preparando para uma nova reserva!")
+    main()
+   
 
