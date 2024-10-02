@@ -14,14 +14,14 @@ def calcular_orcamento(hotel, qpessoas):
 def main():
   while True:
     st.title("Sistema de Reservas ADSResorts")
-
-    # Coleta de dados do usuário
-    nome = st.text_input("Digite seu nome completo:")
+    name_key = f"name_{i}"  
+    nome = st.text_input("Digite seu nome completo:", key=name_key)
+    i += 1  
     cpf = st.text_input("Digite seu CPF:")
     hotel = st.selectbox("Escolha o hotel desejado:", options=["Hotel Executive", "Hotel Delux"])
     qpessoas = st.number_input("Digite a quantidade de hóspedes:", min_value=1, max_value=6)
     dias = st.number_input("Digite a quantidade de dias:", min_value=1, value=1)
-
+ 
     # Botão para calcular o orçamento
     if st.button("Calcular Orçamento"):
       diaria = calcular_orcamento(hotel, qpessoas)
