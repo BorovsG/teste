@@ -22,8 +22,8 @@ def main():
     dias = st.number_input("Digite a quantidade de dias:", min_value=1, value=1)
 
     # Botão para calcular o orçamento
-if st.button("Calcular Orçamento"):
-    orcamento = calcular_orcamento(hotel, qpessoas, dias)
+    if st.button("Calcular Orçamento"):
+        orcamento = calcular_orcamento(hotel, qpessoas, dias)
 
         # resultado
         st.write(f"**Resumo da Reserva**")
