@@ -1,6 +1,6 @@
 import streamlit as st
 
-# Tabela de preços (mesma que no código original)
+# Tabela de preços 
 hotel1 = [0, 20, 28, 35, 42, 48, 53]
 hotel2 = [0, 25, 34, 42, 50, 57, 63]
 
@@ -25,7 +25,7 @@ def main():
     if st.button("Calcular Orçamento"):
         orcamento = calcular_orcamento(hotel, qpessoas, dias)
 
-        # Apresentação dos resultados
+        # resultado
         st.write(f"**Resumo da Reserva**")
         st.write(f"Nome: {nome}")
         st.write(f"CPF: {cpf}")
@@ -36,10 +36,10 @@ def main():
 
         # Botão para confirmar a reserva
         if st.button("Confirmar Reserva"):
-            if nome and cpf:
-                st.success("Reserva confirmada com sucesso!")
-            else:
-                st.error("Por favor, preencha todos os campos obrigatórios (Nome e CPF).")
+    if not nome or not cpf:
+        st.error("Por favor, preencha todos os campos obrigatórios (Nome e CPF).")
+    else:
+        st.success("Reserva confirmada com sucesso!")
 
 if __name__ == "__main__":
     main()
