@@ -32,7 +32,6 @@ def main():
         st.write(f"Hotel escolhido: {hotel}")
         st.write(f"Quantidade de hóspedes: {qpessoas}")
         st.write(f"Quantidade de dias: {dias}")
-        st.write(f"Valor da diária: R$ {diaria:.2f}")
         st.write(f"Orçamento total: R$ {orcamento:.2f}")
 
         # Confirmação da reserva
