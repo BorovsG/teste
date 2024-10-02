@@ -35,7 +35,7 @@ def main():
         st.write(f"Orçamento: R${orcamento:.2f}")
 
         # Botão para confirmar a reserva
-        if st.button("Confirmar Reserva"):
+if st.button("Confirmar Reserva"):
     if not nome or not cpf:
         st.error("Por favor, preencha todos os campos obrigatórios (Nome e CPF).")
     else:
