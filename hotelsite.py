@@ -1,39 +1,47 @@
 import streamlit as st
 
-# Tabela de preços
-precos_executivo = [0, 20, 28, 35, 42, 48, 53]
-precos_delux = [0, 25, 34, 42, 50, 57, 63]
+# Tabela de preços (dicionários para melhor organização)
+precos_hotel1 = {1: 20, 2: 28, 3: 35, 4: 42, 5: 48, 6: 53}
+precos_hotel2 = {1: 25, 2: 34, 3: 42, 4: 50, 5: 57, 6: 63}
 
-def calcular_preco(hotel, pessoas, dias):
+def calcular_orcamento(hotel, qpessoas, dias):
     if hotel == 1:
-        diaria = precos_executivo[pessoas - 1]
+        diaria = precos_hotel1[qpessoas]
     else:
-        diaria = precos_delux[pessoas - 1]
+        diaria = precos_hotel2[qpessoas]
     return diaria * dias
 
-def reservar():
+def main():
     st.title("Sistema de Reservas ADSResorts")
 
+    # Input dos dados do cliente
     nome = st.text_input("Digite seu nome completo:")
     cpf = st.text_input("Digite seu CPF:")
     hotel = st.selectbox("Escolha o hotel desejado:", options=["Hotel Executive", "Hotel Delux"])
-    pessoas = st.slider("Quantidade de pessoas", 1, 6)
-    dias = st.number_input("Digite a quantidade de dias:", min_value=1, value=1)
+    qpessoas = st.number_input("Digite a quantidade de hóspedes:", min_value=1, max_value=6)
+    dias = st.number_input("Digite a quantidade de dias:")
 
-    if st.button("Calcular"):
-        preco = calcular_preco(hotel, pessoas, dias)
-        st.write(f"**Resumo da Reserva:**")
+    # Botão para calcular o orçamento e exibir os resultados
+    if st.button("Calcular Orçamento"):
+        orcamento = calcular_orcamento(hotel, qpessoas, dias)
+
+        st.write("---")
+        st.subheader("Resumo da Reserva")
         st.write(f"Nome: {nome}")
         st.write(f"CPF: {cpf}")
-        st.write(f"Hotel: {hotel}")
-        st.write(f"Pessoas: {pessoas}")
-        st.write(f"Dias: {dias}")
-        st.write(f"Preço total: R${preco:.2f}")
+        st.write(f"Hotel escolhido: {hotel}")
+        st.write(f"Quantidade de hóspedes: {qpessoas}")
+        st.write(f"Quantidade de dias: {dias}")
+        st.write(f"Valor da diária: R$ {diaria:.2f}")
+        st.write(f"Orçamento total: R$ {orcamento:.2f}")
 
-        if st.button("Confirmar Reserva"):
+        # Confirmação da reserva
+        confirmacao = st.radio("Deseja confirmar sua reserva?", ("Sim", "Não"))
+        if confirmacao == "Sim":
             st.success("Sua reserva foi realizada com sucesso!")
         else:
-            st.error("Reserva cancelada.")
+            st.error("Sua reserva foi cancelada.")
 
 if __name__ == "__main__":
-    reservar()
+    main()
+
