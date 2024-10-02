@@ -37,9 +37,9 @@ def main():
         # Botão para confirmar a reserva
     if st.button("Confirmar Reserva"):
         if nome and cpf:
-                st.success("Reserva confirmada com sucesso!")
-            else:
-                st.error("Por favor, preencha todos os campos obrigatórios.")
+            st.success("Reserva confirmada com sucesso!")
+        else:
+            st.error("Por favor, preencha todos os campos obrigatórios.")
 
 if __name__ == "__main__":
     main()
